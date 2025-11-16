@@ -1,0 +1,10 @@
+GET /api/users - List all users data
+
+GET /api/users/1 - GET user1's data
+GET /api/users/2 - GET user2's data
+
+POST /api/users - Create new user
+
+PATCH /api/users/1 - PATCH update user2's data
+
+DELETE /api/users/1 - DELETE delete user1's data
