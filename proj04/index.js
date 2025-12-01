@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const { connectToMongoDb } = require("./connection");
 const { checkForAuthentication, restrictTo } = require('./middlewares/auth');
+const { createUrlLimiter } = require("./middlewares/rateLimiter");
 const URL = require("./models/url");
 
 require("dotenv").config();
@@ -34,7 +35,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 app.use(checkForAuthentication);
 
-app.use("/url", restrictTo(["NORMAL"]), urlRoute);
+app.use("/url", restrictTo(["NORMAL"]), createUrlLimiter, urlRoute);
 app.use("/user", userRoute);
 app.use("/", staticRoute);
 
