@@ -17,9 +17,11 @@ const { Timestamp } = require("bson");
 const { handleGetAnalytics } = require("./controller/url");
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
 // MongoDB connection
+mongoose.set("strictQuery", false);
+
 const mongourl = process.env.MONGODB_URL;
 console.log("Mongo URL from env:", process.env.MONGODB_URL);
 connectToMongoDb(mongourl)
