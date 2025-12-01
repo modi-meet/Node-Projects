@@ -1,12 +1,12 @@
 const URL = require('../models/url')
-const shortid = require('shortid');
+const {nanoid} = require('nanoid');
 
 async function handleGenerateShortUrl(req, res) {
     const body = req.body;
     console.log("Request body:", body);
     if(!body.url) return res.status(400).json({message: "URL is required..."});
 
-    const shortID = shortid();
+    const shortID = nanoid(8); // secure & collision-resistant
 
     await URL.create({
         shortId: shortID,
