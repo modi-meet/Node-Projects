@@ -30,3 +30,5 @@ A URL shortening service built with Node.js, Express, and MongoDB. This applicat
 
 1. Stateless Authentication
 2. JWT Tokens
+3. Cookies vs Token based Authorization
+4. Headers file include "authorization" key followed by the JWT token
