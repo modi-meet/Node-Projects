@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const mongoose = require("mongoose");  
 const { connectToMongoDb } = require("./connection");
 const { checkForAuthentication, restrictTo } = require('./middlewares/auth');
 const { createUrlLimiter } = require("./middlewares/rateLimiter");
