@@ -10,7 +10,6 @@ A portfolio of Node.js projects demonstrating progressive learning from fundamen
   - [Project 01 - Hybrid Node Server](#project-01---hybrid-node-server)
   - [Project 04 - URL Shortener with JWT Auth](#project-04---url-shortener-with-jwt-auth)
 - [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
 - [API Reference](#api-reference)
 - [Key Learnings](#key-learnings)
 - [RESTful API Guidelines](#restful-api-guidelines)
@@ -29,13 +28,6 @@ A minimal Node.js application demonstrating core concepts.
 - Basic Node.js setup with npm
 - Using built-in `os` module to access system information
 
-**Run:**
-```bash
-cd Hello-World
-npm install
-npm start
-```
-
 ---
 
 ### Project 01 - Hybrid Node Server
@@ -53,14 +45,6 @@ A RESTful API server demonstrating best practices for building hybrid applicatio
 - Node.js, Express.js
 - MongoDB, Mongoose
 - dotenv for environment configuration
-
-**Run:**
-```bash
-cd proj01
-npm install
-# Create .env file with MONGODB_URL
-npm start
-```
 
 **API Endpoints:**
 | Method | Endpoint | Description |
@@ -97,14 +81,6 @@ A full-featured URL shortening service with user authentication and click analyt
 - cookie-parser, express-validator
 - nanoid/uuid for short ID generation
 
-**Run:**
-```bash
-cd proj04
-npm install
-# Create .env file with MONGODB_URL and JWT_SECRET
-npm start
-```
-
 **API Endpoints:**
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
@@ -138,39 +114,6 @@ proj04/
 | JWT | Stateless authentication |
 | EJS | Server-side templating |
 | dotenv | Environment configuration |
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd Node-Projects
-```
-
-2. Navigate to a project and install dependencies:
-```bash
-cd proj04  # or any other project
-npm install
-```
-
-3. Create a `.env` file with required variables:
-```env
-MONGODB_URL=mongodb://localhost:27017/your-database
-JWT_SECRET=your-secret-key
-PORT=8001
-```
-
-4. Start the server:
-```bash
-npm start
-```
 
 ## Key Learnings
 
