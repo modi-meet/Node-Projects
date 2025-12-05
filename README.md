@@ -150,7 +150,7 @@ proj04/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/modi-meet/Node-Projects.git
+git clone <repository-url>
 cd Node-Projects
 ```
 
