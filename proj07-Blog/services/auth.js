@@ -1,6 +1,11 @@
 const JWT = require('jsonwebtoken');
 
-const secret = process.env.JWT_SECRET || "Superman123";
+if (!process.env.JWT_SECRET) {
+    console.error('JWT_SECRET environment variable is not set. Exiting to avoid insecure defaults.');
+    process.exit(1);
+}
+
+const secret = process.env.JWT_SECRET;
 
 function createTokenForUser(user) {
     const payload = {
@@ -10,12 +15,13 @@ function createTokenForUser(user) {
         role: user.role,
     };
 
-    const token = JWT.sign(payload, secret);
+    // Add an expiration to tokens
+    const token = JWT.sign(payload, secret, { expiresIn: '7d' });
     return token;
 };
 
 function validateToken(token) {
-    const payload = JWT.verify(token, secret)
+    const payload = JWT.verify(token, secret);
 
     return payload;
 };
