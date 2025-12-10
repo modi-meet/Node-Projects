@@ -4,6 +4,7 @@ const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
 
 const Blog = require('./models/blog');
 
@@ -29,6 +30,12 @@ app.use(checkForAuthCookie(process.env.COOKIE_NAME || "Token"))
 app.use('/images', express.static(path.join(__dirname, 'public', 'imgaes')));
 
 app.use(express.static(path.resolve('./public')));
+
+// Ensure uploads directory exists 
+const uploadsDir = path.join(__dirname, 'public', 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 app.get('/', async (req, res) => {
     const allBlogs = await Blog.find({});
