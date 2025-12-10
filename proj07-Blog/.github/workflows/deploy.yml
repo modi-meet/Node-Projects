@@ -14,7 +14,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install   # or pip install -r requirements.txt for Python
+          npm install
 
       - name: Zip app
         run: zip -r app.zip .
