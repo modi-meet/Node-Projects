@@ -16,12 +16,15 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd proj07-Blog
           npm install
 
       - name: Zip app
-        run: zip -r app.zip .
+        run: |
+          cd proj07-Blog
+          zip -r app.zip .
 
-      - name: Deploy to EB
+            - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
