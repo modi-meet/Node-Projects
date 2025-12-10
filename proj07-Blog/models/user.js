@@ -33,10 +33,10 @@ const userSchema =  new Schema ({
     { timestamps: true },
 );
 
-userSchema.pre('save', function (next){
+userSchema.pre('save', async function (){
     const user = this;
 
-    if(!user.isModified("password")) return next();
+    if(!user.isModified("password")) return;
 
     const salt = randomBytes(16).toString('hex');
     const hashedPass = createHmac('sha256', salt)
@@ -45,8 +45,6 @@ userSchema.pre('save', function (next){
 
     this.salt = salt;
     this.password = hashedPass;
-
-    next();
 });
 userSchema.statics.matchPasswordAndGenerateToken = async function(email, password){
     const user = await this.findOne({ email });

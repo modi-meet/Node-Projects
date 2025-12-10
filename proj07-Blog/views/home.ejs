@@ -10,17 +10,18 @@
     
     <h1>Homepage</h1>
 
-    <div>
-        <% blogs.forEach(blog => { %>
-         <div class="card m-3" style="width: 18rem;">
-            <img class="card-img-top" src="<%= blog.coverImageURL %>" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"><%= blog.title  %></h5>
-                <a href="/blog/<%= blog._id %>" class="btn btn-primary">Go somewhere</a>
+    <div class="container mt-3">
+        <div class="row row=cols-3">
+            <% blogs.forEach(blog => { %>
+            <div class="card m-3" style="width: 18rem;">
+                <img class="card-img-top" src="<%= blog.coverImageURL %>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%= blog.title  %></h5>
+                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">Check out blog</a>
+                </div>
             </div>
+            <% }) %>
         </div>
-        <% }) %>
-
     </div>
     
     <%- include('./partials/scripts') %>

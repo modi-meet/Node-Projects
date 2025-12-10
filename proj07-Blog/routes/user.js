@@ -8,7 +8,6 @@ router.get('/signin', (req, res) => {
     return res.render('signin');
 })
 
-
 router.get('/signup', (req, res) => {
     res.render('signup');
 })
@@ -16,13 +15,14 @@ router.get('/signup', (req, res) => {
 router.post('/signup', async (req, res) => {
     const { fullName, email, password } = req.body;
 
-    const user = await User.create({ fullName, email, password });
-
     try {
+        const user = await User.create({ fullName, email, password });
         const token = createTokenForUser(user);
+        
         return res.cookie('Token', token).redirect('/');
     } catch (err) {
-        return res.redirect('/');
+        console.error('Signup error:', err.message || err);
+        return res.status(400).render('signup', { error: err.message || 'Signup failed' });
     }
 })
 
