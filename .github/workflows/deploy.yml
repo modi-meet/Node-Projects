@@ -3,6 +3,8 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "proj07-Blog/**"
 
 jobs:
   deploy:
